@@ -5,7 +5,8 @@ services:
     networks:
       - backend
     volumes:
-      - $PATH_TO_PHP_PROJECT:/var/www/html/
+      - $PATH_TO_PHP_PROJECT:/var/www/html/project
+      - $PATH_TO_PHPMYADMIN:/var/www/html/phpmyadmin
   apache:
     build: './apache/'
     depends_on:
@@ -17,17 +18,8 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - $PATH_TO_PHP_PROJECT:/var/www/html/
-  phpmyadmin:
-    image: phpmyadmin:5.2.0-apache
-    depends_on:
-      - apache
-      - mysql
-    networks:
-      - frontend
-      - backend
-    ports:
-      - "8081:80"
+      - $PATH_TO_PHP_PROJECT:/var/www/html/project
+      - $PATH_TO_PHPMYADMIN:/var/www/html/phpmyadmin
     environment:
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
       - PMA_HOST=mysql

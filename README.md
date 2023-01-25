@@ -1,8 +1,6 @@
 # lampd
 httpd+MySQL+php+phpMyAdmin docker containers
 
-#  Scandiweb-junior-test
-
 ## Build docker images
 
 Run 4 daemons:

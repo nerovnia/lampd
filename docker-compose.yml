@@ -20,7 +20,6 @@ services:
       - $PATH_TO_PHP_PROJECT:/var/www/html/
   phpmyadmin:
     image: phpmyadmin:5.2.0-apache
-#    image: phpmyadmin:5.2.0-fpm-alpine
     depends_on:
       - apache
       - mysql
@@ -31,7 +30,6 @@ services:
       - "8081:80"
     environment:
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
-#      - PMA_ABSOLUTE_URI=
       - PMA_HOST=mysql
       - PMA_PORT=3306      
   mysql:

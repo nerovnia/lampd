@@ -3,6 +3,10 @@ httpd+MySQL+php+phpMyAdmin docker containers
 
 #  Scandiweb-junior-test
 
+## Access
+
+You can access that webapp by starting docker containers and visiting http://localhost:8080/project for your project and http://localhost:8080/phpmyadmin for phpMyAdmin in your browser.
+
 ## Build docker images
 
 Run 4 daemons:

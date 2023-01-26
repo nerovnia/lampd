@@ -5,7 +5,7 @@ services:
     networks:
       - backend
     volumes:
-      - $PATH_TO_PHP_PROJECT:/var/www/html/project
+      - $PATH_TO_PHP_PROJECT:/var/www/html
       - $PATH_TO_PHPMYADMIN:/var/www/html/phpmyadmin
   apache:
     build: './apache/'
@@ -18,7 +18,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - $PATH_TO_PHP_PROJECT:/var/www/html/project
+      - $PATH_TO_PHP_PROJECT:/var/www/html
       - $PATH_TO_PHPMYADMIN:/var/www/html/phpmyadmin
     environment:
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD

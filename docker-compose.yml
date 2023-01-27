@@ -2,23 +2,30 @@ version: "3.2"
 services:
   php:
     build: './php/'
+    restart: always
     networks:
       - backend
     volumes:
-      - $PATH_TO_PHP_PROJECT:/var/www/html
+      - $PATH_TO_PHP_PROJECT:/var/www/html/project
       - $PATH_TO_PHPMYADMIN:/var/www/html/phpmyadmin
   apache:
     build: './apache/'
+    restart: always
     depends_on:
       - php
       - mysql
     networks:
       - frontend
       - backend
+    extra_hosts:
+      - "project.test:127.0.0.1"
+      - "phpmyadmin.test:127.0.0.1"
+    hostname: project.test
+    domainname: local    
     ports:
       - "8080:80"
     volumes:
-      - $PATH_TO_PHP_PROJECT:/var/www/html
+      - $PATH_TO_PHP_PROJECT:/var/www/html/project
       - $PATH_TO_PHPMYADMIN:/var/www/html/phpmyadmin
     environment:
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
@@ -26,6 +33,7 @@ services:
       - PMA_PORT=3306      
   mysql:
     image: mysql:5.6.40
+    restart: always
     networks:
       - backend
     environment:

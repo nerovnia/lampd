@@ -1,3 +1,4 @@
+#FROM httpd:2.4
 FROM httpd:2.4.55-alpine
 RUN apk update; \
     apk upgrade;

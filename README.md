@@ -17,6 +17,7 @@ Run 4 daemons:
 
 ### Build and start docker containers
 ```bash
+# docker-compose --env-file ./config/.env.dev build
 # docker-compose --env-file ./config/.env.dev up
 ```
 

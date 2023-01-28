@@ -14,6 +14,8 @@ Run 4 daemons:
 * mysql
 * phpmyadmin
 
+## Download new version phpMyAdmin from official [site](https://www.phpmyadmin.net) and it.
+
 
 ## Create config directory and file .env.dev:
 
@@ -29,6 +31,11 @@ PATH_TO_PHPMYADMIN=<phpMyAdmin directory>
 # MySQL
 MYSQL_ROOT_PASSWORD=<root password>
 ```
+
+## Add to /etc/host file a record:
+
+127.0.0.1:8080 project.test www.project.test
+127.0.0.1:8080 phpmyadmin.test www.phpmyadmin.test
 
 ### Build and start docker containers
 ```bash

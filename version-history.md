@@ -9,9 +9,9 @@
 
    - Created docker-compose configuration
    - Added images:
-    - httpd;
-    - php;
-    - mySQL;
-    - phpMyAdmin.
+     - httpd;
+     - php;
+     - mySQL;
+     - phpMyAdmin.
    - Added httpd image
 

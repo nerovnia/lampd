@@ -15,6 +15,21 @@ Run 4 daemons:
 * phpmyadmin
 
 
+## Create config directory and file .env.dev:
+
+```
+# Environment
+
+# PHP Project directory
+PATH_TO_PHP_PROJECT=<project directory>
+
+# PhpMyAdmin
+PATH_TO_PHPMYADMIN=<phpMyAdmin directory>
+
+# MySQL
+MYSQL_ROOT_PASSWORD=<root password>
+```
+
 ### Build and start docker containers
 ```bash
 # docker-compose --env-file ./config/.env.dev up

@@ -1,9 +1,11 @@
 # Version history
 
-## v 2.1 28.01.23
-   - rerouting all php requests through index.php
+## v 2.1 30.01.23
    - build and start container from command line by command ./up.sh
    - stop and remove docker containers by command command ./down.sh
+   - added user admin to MySQL image
+   - added pdo_mysql module to php container
+   - added user to mySQL
 
 ## v 2.0 27.01.23
    - webapp adress is http://project.test:8080/ and 

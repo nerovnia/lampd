@@ -6,6 +6,7 @@
    - added user admin to MySQL image
    - added pdo_mysql module to php container
    - added user to mySQL
+   - change php.ini, copy from php.ini-development
 
 ## v 2.0 27.01.23
    - webapp adress is http://project.test:8080/ and 

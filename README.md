@@ -99,6 +99,11 @@ Run 4 daemons:
 # docker cp demo.apache.conf lampd_apache_1:/usr/local/apache2/conf/
 ```
 
+Show php errors log files
+```bash
+# docker logs -f --details lampd_php_1
+```
+
 License: Apache-2.0 license 
 
 Author: Volodmyr Nerovnia

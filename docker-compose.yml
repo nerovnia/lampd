@@ -8,6 +8,8 @@ services:
     volumes:
       - $PATH_TO_PHP_PROJECT:/var/www/html/project
       - $PATH_TO_PHPMYADMIN:/var/www/html/phpmyadmin
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
   apache:
     build: './apache/'
     restart: always
@@ -21,16 +23,18 @@ services:
       - "project.test:127.0.0.1"
       - "phpmyadmin.test:127.0.0.1"
     hostname: project.test
-    domainname: local    
+    domainname: local
     ports:
       - "8080:80"
     volumes:
       - $PATH_TO_PHP_PROJECT:/var/www/html/project
       - $PATH_TO_PHPMYADMIN:/var/www/html/phpmyadmin
-    environment:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+#   environment:
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
       - PMA_HOST=mysql
-      - PMA_PORT=3306      
+      - PMA_PORT=3306
   mysql:
     image: mysql:5.6.40
     restart: always
@@ -40,6 +44,13 @@ services:
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
       - MYSQL_USER=$MYSQL_USER
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
+    volumes:
+      - $MYSQL_DATA_VOLUME_PATH:/var/lib/mysql
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+#volumes:
+#  timezone-volume: /etc/timezone:/etc/timezone:ro
+#  localtime-volume: /etc/localtime:/etc/localtime:ro
 
 networks:
   frontend:

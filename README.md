@@ -79,6 +79,12 @@ Run 4 daemons:
 # /usr/local/apache2/bin/apachectl restart
 ```
 
+### Viewing Docker logs
+
+```bash
+# docker logs -ft lampd_php_1 
+```
+
 ### Configuration files
 
 ```
